@@ -19,3 +19,6 @@
 .machine-title{display:flex;align-items:center;gap:.3rem}
 .machine-title img{width:22px;height:22px;object-fit:contain;image-rendering:pixelated}
 .mini-frog{width:70px;height:72px;object-fit:contain;image-rendering:pixelated}
+.hero-scene{background-image:linear-gradient(90deg,#030807b8 0%,#03080718 35%,transparent 56%,#03080735 100%),url('/art/factory-hero-one-arm.png')}
+.throw-arm{transform-origin:730px 290px;animation-duration:2.9s}
+@keyframes throwArm{0%,100%{transform:rotate(8deg)}18%{transform:rotate(-9deg)}30%{transform:rotate(-18deg)}48%{transform:rotate(1deg)}72%{transform:rotate(8deg)}}

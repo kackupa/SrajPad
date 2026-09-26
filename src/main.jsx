@@ -32,6 +32,10 @@ function FlyingRolls() {
   return <svg className="flight-layer" viewBox="0 0 1440 604" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
     <defs>
       <filter id="route-glow"><feGaussianBlur stdDeviation="5" /></filter>
+      <filter id="arm-key" colorInterpolationFilters="sRGB">
+        <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  -3.4 -3.4 -3.4 0 8" result="keyed" />
+        <feComposite in="keyed" in2="SourceAlpha" operator="in" />
+      </filter>
     </defs>
     {routes.map((path, index) => <g key={path}>
       <path d={path} className="route-glow" filter="url(#route-glow)" />
@@ -42,9 +46,7 @@ function FlyingRolls() {
       </g>
     </g>)}
     <g className="throw-arm">
-      <path d="M 737 304 L 757 273 L 772 242 L 787 219 L 805 202" className="arm-outline" />
-      <path d="M 737 304 L 757 273 L 772 242 L 787 219 L 805 202" className="arm-fill" />
-      <path d="M 800 207 l 17 -9 6 -22 7 14 12 -12 -3 20 11 -6 -9 19 -25 9" className="hand" />
+      <image href={`${art}throw-arm-sprite.png`} x="682" y="114" width="206" height="252" filter="url(#arm-key)" />
     </g>
   </svg>;
 }
