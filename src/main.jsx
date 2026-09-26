@@ -12,11 +12,11 @@ const chains = [
 ];
 
 const routes = [
-  'M 844 150 C 910 66 960 12 1000 -35',
-  'M 844 150 C 937 76 1086 45 1220 88',
-  'M 844 150 C 963 137 1048 177 1128 236',
-  'M 844 150 C 880 190 918 254 962 302',
-  'M 844 150 C 983 230 1119 344 1190 390',
+  'M 844 150 C 895 90 925 56 975 70',
+  'M 844 150 C 920 80 1020 75 1100 107',
+  'M 844 150 C 920 130 987 180 1030 224',
+  'M 844 150 C 860 202 875 260 900 300',
+  'M 844 150 C 945 230 1035 305 1100 360',
 ];
 
 function ChainCard({ chain, compact = false }) {
@@ -66,7 +66,7 @@ function App() {
 
   return <div className="site-shell">
     <header className="topbar">
-      <a className="brand" href="#launch" aria-label="SrajPad home"><span className="brand-frog" aria-hidden="true">🐸</span><span>Sraj<span>Pad</span></span></a>
+      <a className="brand" href="#launch" aria-label="SrajPad home"><img className="brand-frog" src={`${art}frog-mark.png`} alt="" /><span>Sraj<span>Pad</span></span></a>
       <button className="menu-toggle" type="button" aria-label={menuOpen ? 'Close navigation' : 'Open navigation'} aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X /> : <Menu />}</button>
       <nav className={menuOpen ? 'nav open' : 'nav'} aria-label="Main navigation">{navigation.map(([label, href], index) => <a className={index === 0 ? 'active' : ''} href={href} key={label} onClick={() => setMenuOpen(false)}>{label}</a>)}</nav>
       <a className="outline-button top-cta" href="#featured">Explore the Launch <ArrowRight size={16} /></a>
@@ -83,7 +83,7 @@ function App() {
           <p className="lede">Multiple pools. Multiple chains.<br />More routes for arbitrage.</p>
           <div className="hero-actions"><a className="solid-button" href="#featured">Explore Srajtasma <ArrowRight size={18} /></a><a className="outline-button" href="#pools">View Pools</a></div>
         </div>
-        <div className="machine-screen"><div className="machine-title">🐸 SRAJPAD</div><div className="machine-status">PREPARING LIQUIDITY<span className="blink">...</span></div></div>
+        <div className="machine-screen"><div className="machine-title"><img src={`${art}frog-mark.png`} alt="" /> SRAJPAD</div><div className="machine-status">PREPARING LIQUIDITY<span className="blink">...</span></div></div>
         <div className="machine-checks"><span><Check size={13} /> BUILD POOLS</span><span><Check size={13} /> ADD ROUTES</span><span><Check size={13} /> MONITOR PRICES</span><span><Check size={13} /> SEND TO CHAINS</span></div>
         <div className="chain-stack" id="chains">{chains.map(chain => <ChainCard chain={chain} key={chain.name} />)}</div>
         <div className="crate-caption">TOILET PAPER<br />IS RESERVE<br />CAPITAL.</div>
@@ -100,7 +100,7 @@ function App() {
 
       <section className="feature-grid" aria-label="SrajPad features">
         <Feature number="01" title="Launch" copy="The first launch is Srajtasma. Follow the setup as pools and routes are prepared.">
-          <div className="mini-launch"><div className="mini-frog">🐸</div><div><span>FIRST TOKEN</span><small>Name: Srajtasma<br />Symbol: SRAJ<br />Supply: 1,000,000,000</small><a href="#featured">EXPLORE <ArrowRight size={13} /></a></div></div>
+          <div className="mini-launch"><img className="mini-frog" src={`${art}frog-mark.png`} alt="" /><div><span>FIRST TOKEN</span><small>Name: Srajtasma<br />Symbol: SRAJ<br />Supply: 1,000,000,000</small><a href="#featured">EXPLORE <ArrowRight size={13} /></a></div></div>
         </Feature>
         <Feature number="02" title="Chains" copy="Base and Robinhood Chain are the first planned destinations. More chains can follow." id="chains-card"><div className="mini-list">{chains.map(chain => <ChainCard chain={chain} compact key={chain.name} />)}</div></Feature>
         <Feature number="03" title="Pools" copy="The first pool plan covers SRAJ/USDC and SRAJ/WETH on each initial chain." id="pools"><div className="pool-visual"><img src={`${art}flying-roll.png`} alt="" /><div className="pool-data"><span>Token <b>SRAJ</b></span><span>Pairs <b>2</b></span><span>Chains <b>2</b></span><span>Status <b>PLANNED</b></span></div></div><a href="#featured" className="mini-link">Pool Plan <ArrowRight size={14} /></a></Feature>
